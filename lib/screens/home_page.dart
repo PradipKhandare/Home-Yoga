@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yoga/utils/custom_app_bar.dart';
+import 'package:yoga/widgets/custom_app_bar.dart';
+import 'package:yoga/widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -51,7 +52,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      key: scaffoldKey,
+      drawer: CustomDrawer(),
       backgroundColor: Colors.white,
       body: NotificationListener(
         onNotification: scrollListener,
@@ -143,7 +145,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: Column(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(bottom: 15,),
+                                    padding: EdgeInsets.only(
+                                      bottom: 15,
+                                    ),
                                     width: MediaQuery.of(context).size.width,
                                     child: Text(
                                       "Yoga For All",
@@ -153,7 +157,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-
                                   Container(
                                     padding: EdgeInsets.only(bottom: 15),
                                     child: Stack(
@@ -201,9 +204,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                     ),
                                   ),
-
                                   Container(
-                                    padding: EdgeInsets.only(bottom: 15,),
+                                    padding: EdgeInsets.only(
+                                      bottom: 15,
+                                    ),
                                     child: Stack(
                                       children: [
                                         Container(
@@ -212,7 +216,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                                "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                                               ),
                                             ),
                                           ),
@@ -249,8 +253,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                     ),
                                   ),
-
-
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      bottom: 15,
+                                    ),
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Text(
+                                      "Yoga For Students",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                   Container(
                                     padding: EdgeInsets.only(bottom: 15),
                                     child: Stack(
@@ -261,7 +276,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                                "https://images.unsplash.com/photo-1552196527-bffef41ef674?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fHw%3D",
                                               ),
                                             ),
                                           ),
@@ -298,7 +313,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                     ),
                                   ),
-
                                   Container(
                                     padding: EdgeInsets.only(bottom: 15),
                                     child: Stack(
@@ -309,7 +323,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                                "https://images.unsplash.com/photo-1531715210939-d957bc76aee7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aW5kaWElMjB5b2dhfGVufDB8fDB8fHww",
                                               ),
                                             ),
                                           ),
@@ -346,8 +360,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ],
                                     ),
                                   ),
-
-
                                   Container(
                                     padding: EdgeInsets.only(bottom: 15),
                                     child: Stack(
@@ -358,7 +370,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                                "https://images.unsplash.com/photo-1484452330304-377cdeb05340?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fGluZGlhJTIweW9nYXxlbnwwfHwwfHx8MA%3D%3D",
                                               ),
                                             ),
                                           ),
@@ -373,6 +385,207 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           top: 10,
                                           child: Text(
                                             "Yoga For Shoulders and Eyes",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 30,
+                                          left: 10,
+                                          top: 38,
+                                          child: Text(
+                                            "Last Time : 2 Feb",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      bottom: 15,
+                                    ),
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Text(
+                                      "Choose Your Type",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 15),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                "https://media.istockphoto.com/id/1315856341/photo/young-woman-meditating-outdoors-at-park.jpg?s=612x612&w=0&k=20&c=cQjPuCiusPAQkWAp6k4c0981M9BaGkbzAKOeTOs9f2s=",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 150,
+                                          color: Colors.black26,
+                                        ),
+                                        Positioned(
+                                          right: 20,
+                                          left: 10,
+                                          top: 10,
+                                          child: Text(
+                                            "Beginner-Friendly",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 30,
+                                          left: 10,
+                                          top: 38,
+                                          child: Text(
+                                            "Last Time : 2 Feb",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 15),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                "https://media.istockphoto.com/id/637872606/photo/woman-doing-yoga-asana-natarajasana-outdoors-on-sunset.jpg?s=612x612&w=0&k=20&c=tD-wzUGdyIiQBl66A0L-grKwQWG_coxI1zeuHMjj_Q8=",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 150,
+                                          color: Colors.black26,
+                                        ),
+                                        Positioned(
+                                          right: 20,
+                                          left: 10,
+                                          top: 10,
+                                          child: Text(
+                                            "Intermediate",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 30,
+                                          left: 10,
+                                          top: 38,
+                                          child: Text(
+                                            "Last Time : 2 Feb",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 15),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                "https://media.istockphoto.com/id/507210634/photo/yoga-in-temple.jpg?s=612x612&w=0&k=20&c=mi1_czZGkyYBJAR5zKd6_miJnqDgSQqY7TfbnTKghh4=",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 150,
+                                          color: Colors.black26,
+                                        ),
+                                        Positioned(
+                                          right: 20,
+                                          left: 10,
+                                          top: 10,
+                                          child: Text(
+                                            "Advanced",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 30,
+                                          left: 10,
+                                          top: 38,
+                                          child: Text(
+                                            "Last Time : 2 Feb",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(bottom: 15),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                "https://media.istockphoto.com/id/1219403762/photo/woman-standing-on-one-leg-and-doing-stretching-exercise-at-park.jpg?s=612x612&w=0&k=20&c=5Eaty9pLR3nTI3DDnFW6k_vVNgBR5MNs4N5AEQ8FZnU=",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 150,
+                                          color: Colors.black26,
+                                        ),
+                                        Positioned(
+                                          right: 20,
+                                          left: 10,
+                                          top: 10,
+                                          child: Text(
+                                            "Specialized/Varied Difficulty",
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
