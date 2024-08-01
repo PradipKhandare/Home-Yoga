@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/are_you_ready.dart';
 
 class StartUp extends StatefulWidget {
   const StartUp({super.key});
@@ -8,6 +9,24 @@ class StartUp extends StatefulWidget {
 }
 
 class _StartUpState extends State<StartUp> {
+  List<String> yogaNames = [
+    "Balasana",
+    "Adho Mukha Svanasana",
+    "Tadasana",
+    "Virabhadrasana",
+    "Vrksasana",
+    "Marjaryasana-Bitilasana",
+    "Setu Bandhasana",
+    "Bhujangasana",
+    "Uttanasana",
+    "Trikonasana",
+    "Paschimottanasana",
+    "Anjaneyasana",
+    "Uttanasana",
+    "Savasana"
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,13 +34,23 @@ class _StartUpState extends State<StartUp> {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.red,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AreYouReady(),
+            ),
+          );
+        },
         child: Container(
-         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10,),
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 10,
+            ),
             child: Text(
-          "Start",
-          style: TextStyle(fontSize: 20, color: Colors.white),
-        )),
+              "Start",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            )),
       ),
       body: CustomScrollView(
         slivers: [
@@ -29,25 +58,30 @@ class _StartUpState extends State<StartUp> {
             backgroundColor: Colors.red,
             expandedHeight: 300,
             pinned: true,
-            title: Text("AppBar"),
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.none,
               centerTitle: false,
               title: Text(
-                "Yoga",
+                "Yoga is not about self-improvement, it's about self-acceptance.",
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
-              background: Image.network(
-                "https://media.istockphoto.com/id/481603934/photo/monk-in-maditation.jpg?s=612x612&w=0&k=20&c=J38O-Z1Fy0S5JAUGzL6tvFl7xAsjbU1kKA-lDE2ccHE=",
-                fit: BoxFit.cover,
+              background: Opacity(
+                opacity: 0.7,
+                child: Image.network(
+                  "https://media.istockphoto.com/id/481603934/photo/monk-in-maditation.jpg?s=612x612&w=0&k=20&c=J38O-Z1Fy0S5JAUGzL6tvFl7xAsjbU1kKA-lDE2ccHE=",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             leading: Icon(Icons.backup_outlined),
             actions: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.thumb_up_alt_outlined, color: Colors.white,),
+                icon: Icon(
+                  Icons.thumb_up_alt_outlined,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
@@ -83,7 +117,7 @@ class _StartUpState extends State<StartUp> {
                                   fit: BoxFit.cover,
                                 )),
                             title: Text(
-                              "Yoga $index",
+                              yogaNames[index],
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
