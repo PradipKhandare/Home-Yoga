@@ -1,4 +1,21 @@
 ## Initial UI of the screens
+## List of the yoga name used in this application are: 
+List<String> yogaNames = [
+    "Balasana",
+    "Adho Mukha Svanasana",
+    "Tadasana",
+    "Virabhadrasana",
+    "Vrksasana",
+    "Marjaryasana-Bitilasana",
+    "Setu Bandhasana",
+    "Bhujangasana",
+    "Uttanasana",
+    "Trikonasana",
+    "Paschimottanasana",
+    "Anjaneyasana",
+    "Uttanasana",
+    "Savasana"
+  ];
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <img src="https://github.com/user-attachments/assets/fe182f15-95f6-47d9-8869-4f48108e7269" alt="image 1" style="width: 200px; height: auto;"/>
