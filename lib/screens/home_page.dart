@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/start_up.dart';
 import 'package:yoga/widgets/custom_app_bar.dart';
 import 'package:yoga/widgets/custom_drawer.dart';
 
@@ -157,51 +158,56 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.only(bottom: 15),
-                                    child: Stack(
-                                      children: [
-                                        Container(
-                                          height: 150,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(
-                                                "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                  InkWell(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => StartUp()));
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.only(bottom: 15),
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(
+                                                  "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Container(
-                                          height: 150,
-                                          color: Colors.black26,
-                                        ),
-                                        Positioned(
-                                          right: 20,
-                                          left: 10,
-                                          top: 10,
-                                          child: Text(
-                                            "Yoga For Beginners",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                          Container(
+                                            height: 150,
+                                            color: Colors.black26,
+                                          ),
+                                          Positioned(
+                                            right: 20,
+                                            left: 10,
+                                            top: 10,
+                                            child: Text(
+                                              "Yoga For Beginners",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Positioned(
-                                          right: 30,
-                                          left: 10,
-                                          top: 38,
-                                          child: Text(
-                                            "Last Time : 2 Feb",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 10,
+                                          Positioned(
+                                            right: 30,
+                                            left: 10,
+                                            top: 38,
+                                            child: Text(
+                                              "Last Time : 2 Feb",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(
