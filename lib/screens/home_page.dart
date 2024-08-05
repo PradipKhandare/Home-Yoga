@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:yoga/screens/start_up.dart';
+import 'package:yoga/service/yoga_database.dart';
 import 'package:yoga/widgets/custom_app_bar.dart';
 import 'package:yoga/widgets/custom_drawer.dart';
+
+import '../model/model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +17,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation _colorsTween, _homeTween, _yogaTween, _iconTween, _drawerTween;
   late AnimationController _textAnimationController;
+  bool isLoading = true;
+
+
+  Future makeYogaEntry(Yoga yoga, String tableName) async{
+    await YogaDatabase.Inastance.insert(yoga, tableName);
+  }
+
+  Future makeYogaSummaryEntry(YogaSummary yogaSummary) async{
+    await YogaDatabase.Inastance.insertYogaSum(yogaSummary);
+  }
+
+  late List<YogaSummary> yogaSummaryList;
+
+  Future readYogaSumEntry() async{
+    this.yogaSummaryList = await YogaDatabase.Inastance.readAllYogaSummary();
+    isLoading = false;
+    print(yogaSummaryList[0].YogaWorkoutName.toString());
+  }
 
   @override
   void initState() {
@@ -36,6 +57,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 0),
     );
+
+    // //CREATING ONE YOGA WORKOUT PACK
+    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableOne, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableOne,);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableOne);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableOne);
+    //
+    // //CREATING ONE YOGA WORKOUT PACK
+    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableTwo, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableTwo,);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableTwo);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableTwo);
+    //
+    //
+    // //CREATING ONE YOGA WORKOUT PACK
+    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableThree, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableThree,);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableThree);
+    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableThree);
+    readYogaSumEntry();
   }
 
   bool scrollListener(ScrollNotification scrollNotification) {
