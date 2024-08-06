@@ -19,21 +19,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _textAnimationController;
   bool isLoading = true;
 
-
-  Future makeYogaEntry(Yoga yoga, String tableName) async{
+  Future makeYogaEntry(Yoga yoga, String tableName) async {
     await YogaDatabase.Inastance.insert(yoga, tableName);
   }
 
-  Future makeYogaSummaryEntry(YogaSummary yogaSummary) async{
+  Future makeYogaSummaryEntry(YogaSummary yogaSummary) async {
     await YogaDatabase.Inastance.insertYogaSum(yogaSummary);
   }
 
   late List<YogaSummary> yogaSummaryList;
 
-  Future readYogaSumEntry() async{
+  Future readYogaSumEntry() async {
     this.yogaSummaryList = await YogaDatabase.Inastance.readAllYogaSummary();
-    isLoading = false;
-    print(yogaSummaryList[0].YogaWorkoutName.toString());
+    setState(() {
+      print(yogaSummaryList[0].YogaWorkoutName.toString());
+      isLoading = false;
+    });
   }
 
   @override
@@ -58,24 +59,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       duration: Duration(seconds: 0),
     );
 
-    // //CREATING ONE YOGA WORKOUT PACK
-    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableOne, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableOne,);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableOne);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableOne);
-    //
-    // //CREATING ONE YOGA WORKOUT PACK
-    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableTwo, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableTwo,);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableTwo);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableTwo);
-    //
-    //
-    // //CREATING ONE YOGA WORKOUT PACK
-    // makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableThree, BackImage: "dummyUrl", yogaImageUrl: "dummyUrl", TimeTaken: "34", TotalNoOfWorkout: "12"));
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "anulomvilom", SecondsORTime: '23'), YogaModel.YoagaTeableThree,);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "kapalbhati", SecondsORTime: '33'), YogaModel.YoagaTeableThree);
-    // makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "pranayam", SecondsORTime: '23'), YogaModel.YoagaTeableThree);
+    // Initializing yogaSummaryList
+    yogaSummaryList = [];
+
+    //CREATING ONE YOGA WORKOUT PACK
+    makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableOne, BackImage: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableOne,);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '33'), YogaModel.YoagaTeableOne);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableOne);
+
+    //CREATING ONE YOGA WORKOUT PACK
+    makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableTwo, BackImage: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableTwo,);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '33'), YogaModel.YoagaTeableTwo);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableTwo);
+
+    //CREATING ONE YOGA WORKOUT PACK
+    makeYogaSummaryEntry(YogaSummary(YogaWorkoutName: YogaModel.YoagaTeableThree, BackImage: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", TimeTaken: "34", TotalNoOfWorkout: "12"));
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl1", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableThree,);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl2", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '33'), YogaModel.YoagaTeableThree);
+    makeYogaEntry(Yoga(seconds: true, yogaTitle: "dummyUrl3", yogaImageUrl: "https://www.keralatourism.org/images/yoga/category/thumb/akarna-dhanurasana3_thumb2.jpg", SecondsORTime: '23'), YogaModel.YoagaTeableThree);
     readYogaSumEntry();
   }
 
@@ -199,58 +202,73 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => StartUp()));
-                                    },
-                                    child: Container(
-                                      padding: EdgeInsets.only(bottom: 15),
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            height: 150,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: NetworkImage(
-                                                  "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                  ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: yogaSummaryList.length,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StartUp()));
+                                          },
+                                          child: Container(
+                                            padding:
+                                                EdgeInsets.only(bottom: 15),
+                                            child: Stack(
+                                              children: [
+                                                Container(
+                                                  height: 150,
+                                                  decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: NetworkImage(
+                                                        yogaSummaryList[index]
+                                                            .BackImage
+                                                            .toString(),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                Container(
+                                                  height: 150,
+                                                  color: Colors.black26,
+                                                ),
+                                                Positioned(
+                                                  right: 20,
+                                                  left: 10,
+                                                  top: 10,
+                                                  child: Text(
+                                                    yogaSummaryList[index]
+                                                        .YogaWorkoutName
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                  right: 30,
+                                                  left: 10,
+                                                  top: 38,
+                                                  child: Text(
+                                                    "Last Time : ${yogaSummaryList[index].TimeTaken}",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 10,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                          Container(
-                                            height: 150,
-                                            color: Colors.black26,
-                                          ),
-                                          Positioned(
-                                            right: 20,
-                                            left: 10,
-                                            top: 10,
-                                            child: Text(
-                                              "Yoga For Beginners",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            right: 30,
-                                            left: 10,
-                                            top: 38,
-                                            child: Text(
-                                              "Last Time : 2 Feb",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                        );
+                                      }),
                                   Container(
                                     padding: EdgeInsets.only(
                                       bottom: 15,
